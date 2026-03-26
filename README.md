@@ -39,7 +39,7 @@ pagepath/
 
 | | Участник | Зона ответственности |
 |-|----------|------|
-| 👤 | [@username](https://github.com/arinakorikova30) | Карта локаций |
-| 👤 | [@username](https://github.com/vicdenn3) | Медиатека персонажей + карта связей |
-| 👤 | [@username](https://github.com/Rinamoroz) | Форум |
-| 👤 | [@username](https://github.com/dashaavas) | Энциклопедия + общая архитектура |
+| 👤 | [@arinakorikova30](https://github.com/arinakorikova30) | Карта локаций |
+| 👤 | [@vicdenn3](https://github.com/vicdenn3) | Медиатека персонажей + карта связей |
+| 👤 | [@Rinamoroz](https://github.com/Rinamoroz) | Форум |
+| 👤 | [@dashaavas](https://github.com/dashaavas) | Энциклопедия + общая архитектура |
