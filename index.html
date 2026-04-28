@@ -4,7 +4,100 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Мастер и Маргарита — Digital Humanities</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        /* CSS СТИЛИ ТЕПЕРЬ ВНУТРИ ТЕГА STYLE */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #fffad7 !important; /* КРЕМОВЫЙ ФОН */
+            color: #1a1a1a;
+            scroll-behavior: smooth;
+        }
+
+        .hero {
+            height: calc(100vh - 60px);
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            background-color: #fffad7;
+        }
+
+        .hero-image-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* ВНИМАНИЕ: Проверь расширение .jpg или .jpeg у своего файла */
+            background: url('illustration.jpeg') no-repeat center top; 
+            background-size: cover;
+        }
+
+        .bottom-nav {
+            position: sticky;
+            top: 0;
+            height: 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 60px;
+            background-color: #fffad7;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .logo { font-size: 1.2rem; font-weight: 500; }
+
+        .nav-links { list-style: none; display: flex; gap: 40px; }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #1a1a1a;
+            font-size: 1rem;
+            text-transform: lowercase;
+        }
+
+        /* СЕТКА ДЛЯ ИНТРО */
+        .content-section {
+            min-height: 100vh;
+            padding: 100px 60px;
+            display: flex;
+            justify-content: center;
+            background-color: #fffad7;
+        }
+
+        .intro-grid-container {
+            max-width: 1200px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 3fr 7fr;
+            gap: 60px;
+        }
+
+        .intro-left h3 {
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+        }
+
+        .quote { font-style: normal; line-height: 1.6; }
+        .quote cite { display: block; margin-top: 10px; font-size: 0.9rem; opacity: 0.7; }
+
+        .intro-right h2 { font-size: 2.2rem; margin-bottom: 40px; }
+
+        .main-text p { font-size: 1.05rem; line-height: 1.8; margin-bottom: 25px; }
+        
+        /* Жирный верхний текст как на макете */
+        .main-text p:first-child {
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+    </style>
 </head>
 <body>
 
@@ -26,12 +119,44 @@
     </nav>
 
     <section id="intro" class="content-section">
-        <div class="container">
-            <h2>О проекте</h2>
-            <p>Здесь начнется ваше погружение в мир Булгакова...</p>
+        <div class="intro-grid-container">
+            <div class="intro-left">
+                <h3>ИНТРО</h3>
+                <blockquote class="quote">
+                    <p>... Так кто ж ты, наконец?<br>
+                    — Я — часть той силы,<br>
+                    что вечно хочет зла<br>
+                    и вечно совершает благо.</p>
+                    <cite>Гете, «Фауст»</cite>
+                </blockquote>
+            </div>
+
+            <div class="intro-right">
+                <h2>Добро пожаловать!</h2>
+                <div class="main-text">
+                    <p>ЭТО РОМАН О ЛЮБВИ, СВОБОДЕ, СИЛЕ ИСКУССТВА И ПРИРОДЕ ЗЛА, ГДЕ МОСКОВСКАЯ РЕАЛЬНОСТЬ 1930-х ГОДОВ ПЕРЕПЛЕТАЕТСЯ С БИБЛЕЙСКИМИ СОБЫТИЯМИ, А САТИРА СОСЕДСТВУЕТ С ГЛУБОКИМИ ФИЛОСОФСКИМИ ВОПРОСАМИ.</p>
+                    <p>На этой платформе вы найдёте карту всех миров, представленных в книге — от Патриарших прудов до Бала у Сатаны, граф со связями всех персонажей, который поможет разобраться в хитросплетениях их судеб, уникальные иллюстрации, запечатлевшие любимых героев, а также форум, где люди делятся своим мнением, спорят о рукописях, которые не горят, и находят единомышленников.</p>
+                </div>
+            </div>
         </div>
     </section>
 
-    <script src="script.js"></script>
+    <script>
+        // JS ТЕПЕРЬ ВНУТРИ ТЕГА SCRIPT
+        document.querySelector('a[href="#intro"]').addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = document.querySelector('#intro');
+            const offset = 60;
+            const bodyRect = document.body.getBoundingClientRect().top;
+            const elementRect = target.getBoundingClientRect().top;
+            const elementPosition = elementRect - bodyRect;
+            const offsetPosition = elementPosition - offset;
+
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            });
+        });
+    </script>
 </body>
 </html>
